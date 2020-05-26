@@ -1,0 +1,94 @@
+﻿<Window x:Class="Baco.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Baco"
+        xmlns:converters="clr-namespace:Baco.Converters"
+        mc:Ignorable="d"
+        Title="Baco launcher" Height="450" Width="500" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+        
+        BorderBrush="DarkBlue" BorderThickness="2" Background="#FF1B1B1B" MouseDown="Window_MouseDown">
+
+    <Window.Resources>
+        
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <converters:NullableBooleanToColorConverter x:Key="NullableBooleanToColorConverter"/>
+
+    </Window.Resources>
+
+    <DockPanel LastChildFill="True">
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Style="{StaticResource RoundedButtonWidowsMinimize}" Click="MinimizeButton_Click"/>
+            <Button Style="{StaticResource RoundedButtonWidowsClose}" Click="CloseButton_Click"/>
+        </StackPanel>
+
+        <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" Foreground="White" x:Name="TextBlockStatus" TextWrapping="Wrap" TextAlignment="Center"/>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
+
+            <Button Width="60" Height="30" HorizontalAlignment="Left" Visibility="{Binding SignInClicked, Converter={StaticResource BooleanToVisibilityConverter}}" Click="LogIn_Button_Click"
+                    Style="{StaticResource NonRoundedButton}" Margin="-20,0,0,0">
+                <Image Source="Resources/img/MaterialDesign/arrow-left.png" Margin="0,0,0,-5"/>
+            </Button>
+
+            <StackPanel>
+                <TextBlock Text="Nick" TextAlignment="Center" Foreground="White"/>
+                <Border BorderBrush="{Binding NickAvailable, Converter={StaticResource NullableBooleanToColorConverter}}" BorderThickness="3" Padding="5" CornerRadius="5">
+                    <TextBox Text="{Binding Nick, UpdateSourceTrigger=PropertyChanged}" TextChanged="Nick_TextBox_TextChanged"/>
+                </Border>
+            </StackPanel>
+
+            <Border BorderBrush="{Binding PasswordOK, Converter={StaticResource NullableBooleanToColorConverter}}" BorderThickness="3" Padding="5" Margin="0,1,0,0" CornerRadius="5">
+
+                <StackPanel>
+
+
+                    <StackPanel>
+                        <TextBlock Text="Password" TextAlignment="Center" Foreground="White"/>
+                        <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+
+                    <StackPanel Visibility="{Binding SignInClicked, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <TextBlock Text="Password confirmation" TextAlignment="Center" Foreground="White"/>
+                        <TextBox Text="{Binding PasswordConfirmation, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </StackPanel>
+            
+            </Border>
+
+            <StackPanel Visibility="{Binding SignInClicked, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock Text="Mail" TextAlignment="Center" Foreground="White"/>
+                <Border BorderBrush="{Binding MailNotInUse, Converter={StaticResource NullableBooleanToColorConverter}}" BorderThickness="3" Padding="5" CornerRadius="5">
+                    <TextBox Text="{Binding Mail, UpdateSourceTrigger=PropertyChanged}" TextChanged="Mail_TextBox_TextChanged"/>
+                </Border>
+            </StackPanel>
+
+            <Grid Margin="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>            
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"
+                           Visibility="{Binding SignInClicked, Converter={StaticResource InverseBooleanToVisibilityConverter}}">Enter</TextBlock>
+                <Button Click="LogIn_Button_Click" Grid.Column="0" Grid.Row="1" Content="Log in" Style="{StaticResource NonRoundedButton}"
+                        Visibility="{Binding SignInClicked, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+
+                <Canvas x:Name="LoadingNotificator" Grid.Column="1" Grid.Row="0" Height="20" Width="20" Background="Green" MouseDown="LoadingNotificator_MouseDown"/>
+
+                <TextBlock Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">Register</TextBlock>
+                <Button Click="SignIn_Button_Click" Grid.Column="2" Grid.Row="1" Content="Sign in" Style="{StaticResource NonRoundedButton}"/>
+            </Grid>
+
+        </StackPanel>
+    </DockPanel>
+</Window>

@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="Baco.Windows.SettingsWindow.Options.VoiceOptions.VoiceOptionsControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Baco.Windows.SettingsWindow.Options.VoiceOptions"
+        xmlns:converters="clr-namespace:Baco.Converters"
+        mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <converters:ProgressBarAudioForegroundConverter x:Key="ProgressBarAudioForegroundConverter"/>
+    </UserControl.Resources>
+    
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Vertical">
+        
+            <Border BorderBrush="White" BorderThickness="1" Margin="5" DockPanel.Dock="Top">
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock FontSize="32" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,30,0">In-call microphone</TextBlock>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Input device</TextBlock>
+                        <ComboBox ItemsSource="{Binding VoiceInputDevices}" VerticalAlignment="Center" DisplayMemberPath="ProductName" SelectedIndex="{Binding CurrentDevice}"/>
+                        <Button Margin="5" Style="{StaticResource RoundedButtonWidowsRefresh}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Voice low threshold (low sounds)</TextBlock>
+                        <Slider Minimum="0" Maximum="100" Width="200" VerticalAlignment="Center" Value="{Binding RangeMinAudio, Mode=TwoWay}" IsSnapToTickEnabled="True"/>
+                        <TextBlock Margin="5" VerticalAlignment="Center">
+                            <Run Text="{Binding RangeMinAudio}"/>
+                            <Run>%</Run>
+                        </TextBlock>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_RANGE_MIN_AUDIO}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Voice higher threshold (high sounds)</TextBlock>
+                        <Slider Minimum="0" Maximum="100" Width="200" VerticalAlignment="Center" Value="{Binding RangeMaxAudio, Mode=TwoWay}" IsSnapToTickEnabled="True"/>
+                        <TextBlock Margin="5" VerticalAlignment="Center">
+                            <Run Text="{Binding RangeMaxAudio}"/>
+                            <Run>%</Run>
+                        </TextBlock>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_RANGE_MAX_AUDIO}"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <Border BorderBrush="White" BorderThickness="1" Margin="5" DockPanel.Dock="Top">
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock FontSize="32" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,30,0">Audio data</TextBlock>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Sample rate</TextBlock>
+                        <TextBox Width="80" Text="{Binding SampleRate, Mode=TwoWay}" PreviewTextInput="TextBoxNumeric_PreviewTextInput" DataObject.Pasting="TextBoxNumeric_Pasting"/>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_SAMPLE_RATE}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center" >Bits per sample</TextBlock>
+                        <TextBox Width="80" Text="{Binding BitsPerSample, Mode=TwoWay}" PreviewTextInput="TextBoxNumeric_PreviewTextInput" DataObject.Pasting="TextBoxNumeric_Pasting"/>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_BITS_PER_SAMPLE}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Channels</TextBlock>
+                        <TextBox Width="80" Text="{Binding Channels, Mode=TwoWay}" PreviewTextInput="TextBoxNumeric_PreviewTextInput" DataObject.Pasting="TextBoxNumeric_Pasting"/>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_CHANNELS}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Buffer (ms)</TextBlock>
+                        <TextBox Width="80" Text="{Binding BufferMs, Mode=TwoWay}" PreviewTextInput="TextBoxNumeric_PreviewTextInput" DataObject.Pasting="TextBoxNumeric_Pasting"/>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_BUFFER_MS}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Buffers</TextBlock>
+                        <TextBox Width="80" Text="{Binding Buffers, Mode=TwoWay}" PreviewTextInput="TextBoxNumeric_PreviewTextInput" DataObject.Pasting="TextBoxNumeric_Pasting"/>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_BUFFERS}"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <Border BorderBrush="White" BorderThickness="1" Margin="5" DockPanel.Dock="Top">
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock FontSize="32" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,30,0">Benchmark</TextBlock>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Test time (s)</TextBlock>
+                        <TextBox Width="80" Text="{Binding VoiceRecorderBenchmark.RecordTime, Mode=TwoWay}" PreviewTextInput="TextBoxNumeric_PreviewTextInput" 
+                                 DataObject.Pasting="TextBoxNumeric_Pasting"/>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" 
+                                Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_RECORD_TIME_S}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Listen test simultaneously</TextBlock>
+                        <CheckBox VerticalAlignment="Center" Height="32" IsChecked="{Binding VoiceRecorderBenchmark.ListenSimultanously}"/>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" 
+                                Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_LISTEN_SIMULTANEOUSLY}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <TextBlock Margin="5" VerticalAlignment="Center">Threesholds enabled</TextBlock>
+                        <CheckBox VerticalAlignment="Center" Height="32" IsChecked="{Binding VoiceRecorderBenchmark.Threesholds}"/>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButtonRestore}" Click="RestoreDefaultButton_Click" 
+                                Tag="{x:Static local:VoiceOptionsConstants.RESTORE_DEFAULT_THREESHOLDS}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Height="50">
+                        <Button Margin="5" Style="{StaticResource NonRoundedButton}" Click="StartTestButton_Click"
+                                Visibility="{Binding VoiceRecorderBenchmark.Testing, Converter={StaticResource InverseBooleanToVisibilityConverter}}">Start test</Button>
+                        <Button Margin="5" Style="{StaticResource NonRoundedButton}" Click="StopTestButton_Click"
+                                Visibility="{Binding VoiceRecorderBenchmark.Testing, Converter={StaticResource BooleanToVisibilityConverter}}">Stop test</Button>
+                        <ProgressBar Width="300" Height="20" Margin="50,0,0,0" Minimum="0" Maximum="1" Value="{Binding VoiceRecorderBenchmark.VoiceRecorder.CurrentVolume}"
+                                     Visibility="{Binding VoiceRecorderBenchmark.Testing, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                     Foreground="{Binding VoiceRecorderBenchmark.VoiceRecorder.CurrentVolume, Converter={StaticResource ProgressBarAudioForegroundConverter}}"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

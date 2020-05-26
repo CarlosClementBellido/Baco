@@ -1,0 +1,227 @@
+% !TeX spellcheck = es_ES
+\documentclass[12pt, a4paper]{book} % Tipo de documento, tamaño de fuente y tamaño de página
+\usepackage[T1]{fontenc} % Codificación de salida (tipos con tilde) y silabación castellana
+\usepackage[latin1]{inputenc} % Reconocer tildes
+\usepackage[english, spanish, es-tabla]{babel} % Idiomas para silabación y castellano principal; "tabla" en lugar de "cuadro"
+\usepackage{graphicx} % Figuras PDF
+\usepackage{setspace} % Interlineado
+\usepackage{pdfpages} % Anexar PDF
+\usepackage{xcolor} % Texto en color
+\usepackage{breakcites} % Partir citas
+\usepackage[font=onehalfspacing]{caption} % Anclas de figuras arriba e interlineado pie de foto 1,5
+%\usepackage[showframe]{geometry} % Tamaño de página
+\usepackage{arabicfront} % Números de página arábigos en frontmatter
+\usepackage{etoolbox}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{upquote}
+\usepackage{dirtree}
+
+\newlist{SubItemList}{itemize}{1}
+\setlist[SubItemList]{label={$-$}}
+
+\let\OldItem\item
+\newcommand{\SubItemStart}[1]{%
+	\let\item\SubItemEnd
+	\begin{SubItemList}[resume]%
+		\OldItem #1%
+	}
+	\newcommand{\SubItemMiddle}[1]{%
+		\OldItem #1%
+	}
+	\newcommand{\SubItemEnd}[1]{%
+	\end{SubItemList}%
+	\let\item\OldItem
+	\item #1%
+}
+\newcommand*{\SubItem}[1]{%
+	\let\SubItem\SubItemMiddle%
+	\SubItemStart{#1}%
+}%
+
+%%%%%%%%% Subsubsecciones numeradas %%%%%%%%%
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% Títulos reversibles %%%%%%%%%%%%%
+\usepackage[explicit,
+toctitles % Section marks en páginas impares
+]{titlesec}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries\sloppy}
+{\chaptertitlename\ \thechapter}{20pt}
+{\hyperlink{toc}{\Huge#1}}
+
+\titleformat{name=\chapter,numberless}
+{\normalfont\huge\bfseries\sloppy}
+{}{0pt}
+{\hyperlink{toc}{\Huge#1}}
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}
+{\thesection.}{1em}{\hyperlink{toc}{#1}}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries}
+{\thesubsection.}{1em}{\hyperlink{toc}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%% Encabezados reversibles %%%%%%%%%%%
+\usepackage{fancyhdr}
+
+% Comprueba si la expansión de 1 está vacía
+\makeatletter
+\newcommand{\ifemptymark}[1]{%
+	\begingroup
+	\sbox\z@{#1}%
+	\expandafter\endgroup
+	\ifdim\wd\z@=\z@
+	\expandafter\@firstoftwo
+	\else
+	\expandafter\@secondoftwo
+	\fi
+}
+\makeatother
+
+\fancyhf{}
+\fancyhead[LE]{\ifemptymark{\leftmark}{}{\hyperlink{toc}{\slshape\leftmark}}} % Quitar \leftmark en página después de \appendixpage
+\fancyhead[RO]{\ifemptymark{\rightmark}{}{\hyperlink{toc}{\slshape\rightmark}}} % Solo si estamos dentro de una sección
+\fancyfoot[LE,RO]{\thepage} % Headers
+\renewcommand{\headrulewidth}{0pt} % Quitar línea inferior del header
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{} % Aplicar también a primera página de capítulo
+
+\pagestyle{fancy}
+
+% Quita "Capítulo 0" en encabezados del frontmatter
+\makeatletter
+\renewcommand\chaptermark[1]{%
+	\markboth{\MakeUppercase{%
+			\ifnum \c@secnumdepth >\m@ne
+			\if@mainmatter
+			\@chapapp\ \thechapter. \ %
+			\fi
+			\fi
+			#1}}{}%
+}
+\renewcommand\@mkboth[2]{\markboth{#1}{}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Hiperenlaces y referencias reversibles%%%
+% Poner el último para enlaces índice apuntando a página correcta
+\usepackage[pagebackref, % Referencias reversibles
+pdftex, % Preparar para PDF y partir hiperenlaces
+pdfauthor={Carlos Clement Bellido},
+pdftitle={Baco},
+pdfsubject={Baco}]{hyperref}
+\urlstyle{same} % Estilo URL normal
+
+\renewcommand*{\backrefalt}[4]
+{
+	\ifcase #1
+	\or        Citada en la página #2.
+	\else      Citada en las páginas #2.
+	\fi
+}
+\renewcommand*{\backrefsep}{, }
+\renewcommand*{\backreftwosep}{ y }
+\renewcommand*{\backreflastsep}{ y }
+
+\usepackage[spanish,nameinlink]{cleveref} % autoref con minúscula inicial
+\addto\captionsspanish{ % Cambiar nombre de secciones y subsecciones
+	\crefname{section}{sección}{secciones}
+	\crefname{subsection}{subsección}{subsecciones}
+	\crefname{appendix}{anexo}{anexos}
+}
+\usepackage{crossreftools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Esquemas TikZ %%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usepackage{varwidth} % Tablas en nodos TikZ
+\usetikzlibrary{mindmap,shapes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*{\blankpage}{%
+	\vspace*{\fill}
+	{\centering Está página ha sido dejada en blanco intencionadamente.\par}
+	\vspace{\fill}}
+\makeatletter
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+	\blankpage
+	\thispagestyle{empty}
+	\newpage
+	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\title{Manual de usuario: BacoServer y API REST}
+\author{Baco SL}
+\date{\today}
+
+\begin{document}
+	
+	\onehalfspacing % Interlineado 1,5
+	\setlength{\parskip}{\baselineskip/3} % Espacio entre párrafos 2
+	\setlength{\parindent}{0pt} % No identar primera línea de párrafo
+	
+	\frontmatter
+	\maketitle
+	\tableofcontents
+	\mainmatter
+
+	\section*{Puesta en marcha} \addcontentsline{toc}{chapter}{Puesta en marcha}
+	BacoServer requiere de una configuración previa a su puesta en marcha. Dado que su función es la de hospedar a los clientes, controlar los mensajes, las llamadas y las conexiones al API REST, BacoServer tiene que tener un puerto accesible y conocido por sus usuarios.
+		\subsection*{Localización del ejecutable (API REST)} \addcontentsline{toc}{subsection}{Localización del ejecutable (API REST)}
+		Para empezar tenemos el fichero <<API REST>> localizado en la carpeta comprimida con diversas librerías. Nuestro ejecutable es <<ApiBaco.exe>>. Tenemos también una carpeta llamada <<Images>>; en ella se guardarán las imágenes de perfil de los usuarios con una estructura de nombre de usuario + extensión, por ejemplo: un usuario se llama <<nick1>>; si este usuario tiene foto de perfil con extensión *.png se guardará como <<nick1.png>>. Si no tuviera foto de perfil se cogería la imagen por defecto: <<default.png>>. Cambiándose <<default.png>> por otra imagen, esta imagen será la predeterminada para aquellos usuarios sin imagen de perfil.
+		\subsection*{Localización del ejecutable (BacoServer)} \addcontentsline{toc}{subsection}{Localización del ejecutable (BacoServer)}
+		El instalador BacoInstaller nos instalará por defecto en archivos de programa, dentro de la carpeta <<Baco SL>>, un ejecutable del servidor junto con una copia del cliente. El ejecutable se denomina <<BacoServer.exe>> y es una aplicación con interfaz CLI; esta se explicará más adelante.
+		\subsection*{Configuración del adaptador} \addcontentsline{toc}{subsection}{Configuración del adaptador}
+		BacoServer se comunica con protocolo TCP y el puerto que utiliza es el 7854. El API REST utiliza el 5000 y su protocolo es TCP también. Sabidos estos datos puede optarse por una red privada para la comunicación interna en la empresa. Al cambiarse la dirección del servidor y/o del API REST, los clientes han de cambiar también la dirección a la que se conectan. Véase esto en el manual de usuario de Baco. La dirección del API REST nos la da el mismo cuando se inicia:
+		\begin{center}
+			\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/ApiRestStart.PNG}\\
+		\end{center}
+		En la tercera línea se ve dónde está escuchando las peticiones:
+		\begin{center}
+			\textsf{http://192.168.1.4:5000}
+		\end{center}
+	\section*{Primera ejecución} \addcontentsline{toc}{section}{Primera ejecución}
+		\subsection*{Dirección del API REST} \addcontentsline{toc}{subsection}{Dirección del API REST}
+		Debido a que puede tenerse un API REST propio ajeno al predeterminado, al inicio del servidor se ofrece la opción de especificar la dirección del API REST. Si se deja en blanco se pondrá la dirección por defecto, si se introduce otra se comprobará la validez de esta haciendo una petición al API REST. Si la petición no es posible se volverá a pedir la dirección del API REST junto con un mensaje de error.		
+		\begin{center}
+			\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/BacoServerStart.PNG}\\
+		\end{center}
+		En nuestro caso no se ha introducido ninguna dirección, por lo tanto nos estaremos conectando al API REST de la dirección:
+		\begin{center}
+			\href{http://clembell.duckdns.org:5000/api/baco/}{\textsf{http://clembell.duckdns.org:5000/api/baco/}}
+		\end{center}
+		Accediendo a el enlace deberían verse valores de prueba para confirmar la comunicación satisfactoria.\\
+		Cuando se realicen las comprobaciones con respecto al API REST y hayan sido satisfactorias aparecerá el mensaje <<\selectlanguage{english}\textit{running}\selectlanguage{spanish}>>, el cual será indicativo de que el servidor está operativo.
+		\begin{center}
+			\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/BacoServerRunning.PNG}\\
+		\end{center}
+	\section*{Interfaz} \addcontentsline{toc}{section}{Interfaz}
+		Al ser CLI la interfaz no va más allá del resaltado del texto y el uso de comandos. Se van a explicar los colores que se van a ver en la aplicación y los comandos que se pueden usar en ella.		
+		\subsection*{Resaltado de mensajes} \addcontentsline{toc}{subsection}{Resaltado de mensajes}
+		Será la principal interfaz a la que nos enfrentaremos; tenemos tres tipos de colores, el verde, el amarillo, el rojo y el blanco. A continuación se verá para que son usados cada uno.\\
+		Junto con el resaltado de los avisos y los errores, va un contador cuya función es registrar el número de avisos o errores por segundo; esto es a modo informativo y se explicará su porqué más adelante.
+			\subsubsection*{Información} \addcontentsline{toc}{subsubsection}{Información}
+			El flujo normal del servidor será resaltado de color verde. Entiéndase como flujo normal todos aquellos mensajes que vayan orientados a la visualización de la acción que esté haciendo el servidor en cada momento.
+			\subsubsection*{Aviso} \addcontentsline{toc}{subsubsection}{Aviso (\selectlanguage{english}\textit{warning}\selectlanguage{spanish})}
+			Los avisos los entendemos como flujos de programa que no suponen la ruptura de este pero que podrían deberse a factores no deseados, como por ejemplo un mal funcionamiento por parte del cliente. Serán resaltados de color amarillo. Supongamos que un cliente tiene un error y no deja de enviar peticiones erróneas al servidor. Dichas peticiones no suponen la ruptura de este, tan solo son desechadas junto con el mensaje en pantalla del error informativo (no olvidemos que los avisos vienen dados por errores controlados). Si las peticiones no cesaran y fueran repetitivas, el contador de avisos y errores por segundo nos informaría de cuántos avisos por segundo están sucediendo, y ello podría suponer un error.\\
+			En lineas generales y como conclusión: un aviso no es un error del funcionamiento normal del servidor, pero muchos avisos por segundo sí que puede suponerlo; las causas pueden ser variadas, pero las más comunes son la falta de memoria o un manejo excesivo de peticiones.
+			\subsubsection*{Error} \addcontentsline{toc}{subsubsection}{Error}
+			Con diferencia de los avisos, estos suponen errores no deseados y, por lo general, producidos por el servidor. Pueden no suponer un error crítico pero, no obstante, son indicativos de que el servidor no está funcionando correctamente. El mensaje que se mostrará por pantalla será el del error.
+			\subsubsection*{Error crítico} \addcontentsline{toc}{subsubsection}{Error crítico}
+			Supone la ruptura total del programa. Se resalta con el color blanco y es indicativo de un error no controlado.
+		\subsection*{Comandos} \addcontentsline{toc}{subsection}{Comandos}
+		Para poder manejar el servidor existen una serie de comandos que nos facilitan tareas informativas. Dichos comandos son los que siguen:
+		\begin{itemize}
+			\item \textbf{help}: muestra todos los comandos junto con una brebe descripción.
+			\item \textbf{status}: muestra los usuarios conectados junto con su tiempo de respuesta. El tiempo de respuesta viene dado por un ping que se realiza en el momento de la ejecución del comando.
+			\item \textbf{cls}: borra todos los datos mostrados por pantalla.
+			\item \textbf{restart}: expulsa del servidor a todos los usuarios y reinicia el servicio de escucha. 
+		\end{itemize}
+	
+\end{document}

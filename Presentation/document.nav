@@ -1,0 +1,40 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\sectionentry {1}{Baco -- Cliente}{3}{Baco -- Cliente}{0}}
+\headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{4}{Comunicación cliente -- servidor}}
+\headcommand {\slideentry {1}{1}{1}{4/4}{Comunicación cliente -- servidor}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{5}{Comunicación cliente -- base de datos}}
+\headcommand {\slideentry {1}{2}{1}{5/5}{Comunicación cliente -- base de datos}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@sectionpages {3}{5}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\sectionentry {2}{BacoServer -- Servidor}{6}{BacoServer -- Servidor}{0}}
+\headcommand {\slideentry {2}{0}{1}{6/6}{}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{7}{Comunicación servidor -- cliente}}
+\headcommand {\slideentry {2}{1}{1}{7/7}{Comunicación servidor -- cliente}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{8}{Comunicación servidor -- base de datos}}
+\headcommand {\slideentry {2}{2}{1}{8/8}{Comunicación servidor -- base de datos}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@sectionpages {6}{8}}
+\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\sectionentry {3}{API REST}{9}{API REST}{0}}
+\headcommand {\beamer@partpages {1}{13}}
+\headcommand {\beamer@subsectionpages {9}{13}}
+\headcommand {\beamer@sectionpages {9}{13}}
+\headcommand {\beamer@documentpages {13}}
+\headcommand {\gdef \inserttotalframenumber {9}}
+\headcommand {\slideentry {3}{0}{1}{9/13}{}{0}}
+\headcommand {\beamer@framepages {9}{13}}

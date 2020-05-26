@@ -1,0 +1,279 @@
+% !TeX spellcheck = es_ES
+\documentclass[12pt, a4paper]{book} % Tipo de documento, tamaño de fuente y tamaño de página
+\usepackage[T1]{fontenc} % Codificación de salida (tipos con tilde) y silabación castellana
+\usepackage[latin1]{inputenc} % Reconocer tildes
+\usepackage[english, spanish, es-tabla]{babel} % Idiomas para silabación y castellano principal; "tabla" en lugar de "cuadro"
+\usepackage{graphicx} % Figuras PDF
+\usepackage{setspace} % Interlineado
+\usepackage{pdfpages} % Anexar PDF
+\usepackage{xcolor} % Texto en color
+\usepackage{breakcites} % Partir citas
+\usepackage[font=onehalfspacing]{caption} % Anclas de figuras arriba e interlineado pie de foto 1,5
+%\usepackage[showframe]{geometry} % Tamaño de página
+\usepackage{arabicfront} % Números de página arábigos en frontmatter
+\usepackage{etoolbox}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{upquote}
+
+\newlist{SubItemList}{itemize}{1}
+\setlist[SubItemList]{label={$-$}}
+
+\let\OldItem\item
+\newcommand{\SubItemStart}[1]{%
+	\let\item\SubItemEnd
+	\begin{SubItemList}[resume]%
+		\OldItem #1%
+	}
+	\newcommand{\SubItemMiddle}[1]{%
+		\OldItem #1%
+	}
+	\newcommand{\SubItemEnd}[1]{%
+	\end{SubItemList}%
+	\let\item\OldItem
+	\item #1%
+}
+\newcommand*{\SubItem}[1]{%
+	\let\SubItem\SubItemMiddle%
+	\SubItemStart{#1}%
+}%
+
+%%%%%%%%% Subsubsecciones numeradas %%%%%%%%%
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% Títulos reversibles %%%%%%%%%%%%%
+\usepackage[explicit,
+toctitles % Section marks en páginas impares
+]{titlesec}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries\sloppy}
+{\chaptertitlename\ \thechapter}{20pt}
+{\hyperlink{toc}{\Huge#1}}
+
+\titleformat{name=\chapter,numberless}
+{\normalfont\huge\bfseries\sloppy}
+{}{0pt}
+{\hyperlink{toc}{\Huge#1}}
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}
+{\thesection.}{1em}{\hyperlink{toc}{#1}}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries}
+{\thesubsection.}{1em}{\hyperlink{toc}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%% Encabezados reversibles %%%%%%%%%%%
+\usepackage{fancyhdr}
+
+% Comprueba si la expansión de 1 está vacía
+\makeatletter
+\newcommand{\ifemptymark}[1]{%
+	\begingroup
+	\sbox\z@{#1}%
+	\expandafter\endgroup
+	\ifdim\wd\z@=\z@
+	\expandafter\@firstoftwo
+	\else
+	\expandafter\@secondoftwo
+	\fi
+}
+\makeatother
+
+\fancyhf{}
+\fancyhead[LE]{\ifemptymark{\leftmark}{}{\hyperlink{toc}{\slshape\leftmark}}} % Quitar \leftmark en página después de \appendixpage
+\fancyhead[RO]{\ifemptymark{\rightmark}{}{\hyperlink{toc}{\slshape\rightmark}}} % Solo si estamos dentro de una sección
+\fancyfoot[LE,RO]{\thepage} % Headers
+\renewcommand{\headrulewidth}{0pt} % Quitar línea inferior del header
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{} % Aplicar también a primera página de capítulo
+
+\pagestyle{fancy}
+
+% Quita "Capítulo 0" en encabezados del frontmatter
+\makeatletter
+\renewcommand\chaptermark[1]{%
+	\markboth{\MakeUppercase{%
+			\ifnum \c@secnumdepth >\m@ne
+			\if@mainmatter
+			\@chapapp\ \thechapter. \ %
+			\fi
+			\fi
+			#1}}{}%
+}
+\renewcommand\@mkboth[2]{\markboth{#1}{}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Hiperenlaces y referencias reversibles%%%
+% Poner el último para enlaces índice apuntando a página correcta
+\usepackage[pagebackref, % Referencias reversibles
+pdftex, % Preparar para PDF y partir hiperenlaces
+pdfauthor={Carlos Clement Bellido},
+pdftitle={Baco},
+pdfsubject={Baco}]{hyperref}
+\urlstyle{same} % Estilo URL normal
+
+\renewcommand*{\backrefalt}[4]
+{
+	\ifcase #1
+	\or        Citada en la página #2.
+	\else      Citada en las páginas #2.
+	\fi
+}
+\renewcommand*{\backrefsep}{, }
+\renewcommand*{\backreftwosep}{ y }
+\renewcommand*{\backreflastsep}{ y }
+
+\usepackage[spanish,nameinlink]{cleveref} % autoref con minúscula inicial
+\addto\captionsspanish{ % Cambiar nombre de secciones y subsecciones
+	\crefname{section}{sección}{secciones}
+	\crefname{subsection}{subsección}{subsecciones}
+	\crefname{appendix}{anexo}{anexos}
+}
+\usepackage{crossreftools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Esquemas TikZ %%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usepackage{varwidth} % Tablas en nodos TikZ
+\usetikzlibrary{mindmap,shapes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*{\blankpage}{%
+	\vspace*{\fill}
+	{\centering Está página ha sido dejada en blanco intencionadamente.\par}
+	\vspace{\fill}}
+\makeatletter
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+	\blankpage
+	\thispagestyle{empty}
+	\newpage
+	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\title{Manual de usuario: Baco}
+\author{Baco SL}
+\date{\today}
+
+\begin{document}
+	
+	\onehalfspacing % Interlineado 1,5
+	\setlength{\parskip}{\baselineskip/3} % Espacio entre párrafos 2
+	\setlength{\parindent}{0pt} % No identar primera línea de párrafo
+	
+	\frontmatter
+	\maketitle
+	\tableofcontents
+	\mainmatter
+	
+%	\section*{Requisitos mínimos} \addcontentsline{toc}{chapter}{Requisitos mínimos}
+	
+	\section*{Primeros pasos} \addcontentsline{toc}{chapter}{Primeros pasos}
+	El sistema de registro de Baco es muy simple y rápido. Tan solo tienes que rellenar los campos que se muestran en el botón \selectlanguage{english}\textit{sign in}\selectlanguage{spanish}. La interfaz del lanzador de Baco:\\\\
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/login.PNG}\\
+	\end{center}
+	Donde los controles son los siguientes:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/login.pdf}\\
+	\end{center}
+	En el caso de tener cuenta introduciríamos las credenciales (en nuestro caso <<nick1>> y como contraseña <<1234>>) y presionaríamos el botón <<\selectlanguage{english}\textit{Log in}\selectlanguage{spanish}>>. En este momento empezará a enviar los datos al servidor para confirmarlos. En caso de confirmación negativa se mantendría esta pantalla. Si la confirmación es positiva entrará a la aplicación.\\
+	Si se pulsa el botón <<\selectlanguage{english}\textit{Sign in}\selectlanguage{spanish}>> se mostraría la siguiente pantalla:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/signin.pdf}\\
+	\end{center}
+	Respecto a la vista anterior se observa que hay dos campos más: confirmación de contraseña y correo electrónico. Conforme se vayan rellenando los campos con los datos que se quiera tener se irá comprobando con el servidor la disponibilidad de ellos. En la vista siguiente se muestran todos los campos validados con el servidor:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/signin2.pdf}\\
+	\end{center}
+	Esto quiere decir que:
+	\begin{itemize}
+		\item No hay ningún usuario con ese nombre
+		\item Los datos de los campos de contraseña y confirmación de contraseña son idénticos
+		\item El correo electrónico no consta como el correo de ningún usuario registrado
+	\end{itemize}
+	\subsection*{Especificación de la dirección del servidor} \addcontentsline{toc}{section}{Especificación de la dirección del servidor (avanzado)}
+	Si se quiere cambiar la dirección a la que se quiere acceder, en el lanzador de Baco tiene que pulsarse el indicador de procesos activos; este abrirá un diálogo donde se nos permitirá ingresar una dirección alternativa a la predeterminada.
+	
+	\section*{Entrada al sistema e interfaz} \addcontentsline{toc}{chapter}{Entrada al sistema e interfaz}
+	Realizada la confirmación de datos con el servidor se accede a la siguiente pantalla:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/hub.PNG}\\
+	\end{center}
+	La cual sus controles son los que se exponen a continuación:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/hub.pdf}\\
+	\end{center}
+
+	\subsection*{Visor RSS} \addcontentsline{toc}{section}{Visor RSS}
+	Cuando se abre el visor RSS (<<\selectlanguage{english}\textit{RSS viewer}\selectlanguage{spanish}>>) sobre la misma pantalla se mostrará un cliente web:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/rss.PNG}\\
+	\end{center}
+	En la barra de búsqueda de canales podemos introducir la dirección de un canal de RSS para suscribirse a él. En cuanto la barra de búsqueda tenga carácteres se mostrará un botón en la parte inferior para añadir el canal:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/rssnew.pdf}\\
+	\end{center}
+	Y una vez añadido tendremos un nuevo proveedor:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/rssadd.PNG}\\
+	\end{center}
+
+	\subsection*{Chat} \addcontentsline{toc}{section}{Chat}
+	La comunicación entre amigos se realiza pulsando el amigo con el que se quiera comunicar. Al pulsar se abrirá la ventana de chat:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/chat.PNG}\\
+	\end{center}
+	Dentro de esta ventana, sus controles son:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/chat.pdf}\\
+	\end{center}
+
+	\subsection*{Llamada} \addcontentsline{toc}{section}{Llamada}
+	Cuando se quiere llamar al usuario, si está conectado, le saldrá una ventana emergente informándole que quieres establecer una llamada. Si se acepta se accedería a una nueva ventana (la cual no está disponible en el menú lateral):
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/call.PNG}\\
+	\end{center}
+	Los controles dentro de la llamada son los que siguen:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/call.pdf}\\
+	\end{center}
+
+	\subsection*{Perfil} \addcontentsline{toc}{section}{Perfil}
+	Si entramos a la ventana de perfil veremos nuestra foto de perfil y nuestro nombre de usuario:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/profile.PNG}\\
+	\end{center}
+	En esta ventana podremos ver nuestro nombre de perfil y cambiar la foto presionándola:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/profile.pdf}\\
+	\end{center}
+	\subsection*{Opciones} \addcontentsline{toc}{section}{Opciones}
+	Y la última ventana, las opciones, donde se pueden cambiar las configuraciones disponibles:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/settings.PNG}\\
+	\end{center}
+	\section*{Amigos} \addcontentsline{toc}{chapter}{Amigos}
+	Las peticiones de amistad se llevan a cabo de la siguiente forma:
+	\begin{enumerate}
+		\item En el campo de búsqueda de amigos se introduce el nombre de usuario del amigo
+		\item Conforme se vaya escribiendo se irán mostrando los usuarios encontrados que contengan la cadena que se ha escrito:\\\\
+		
+		\begin{center}
+			\hspace*{-1.1cm}
+			\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/search.PNG}
+		\end{center}
+		\item Una vez se encuentre al amigo se presiona sobre su nombre de usuario
+		\item En la parte inferior izquierda aparecerá un diálogo para la enviar la petición
+		\item Seleccionamos la acción positiva y ya le llegará una notificación
+	\end{enumerate}
+	Las peticiones de amistad se reciben en la pantalla principal de la siguiente forma:
+	\begin{center}
+		\includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{img/DrawIO/src/petition.PNG}
+	\end{center}
+	
+\end{document}

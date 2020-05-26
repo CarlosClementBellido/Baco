@@ -1,0 +1,24 @@
+\begin{thebibliography}{}
+
+\bibitem[Learn Entity Framework Core, 2020]{Learn_Entity_Framework_Core}
+ {Learn Entity Framework Core} (2020).
+\newblock Disponible en línea:
+  \url{https://www.learnentityframeworkcore.com/}.
+\newblock Accedido: febrero 2020.
+
+\bibitem[\selectlanguage{spanish}Ángel
+  Belzunegui~Eraso\selectlanguage{spanish},
+  2008]{Teletrabajo_en_Espana_acuerdo_marco_y_administracion_publica}
+ Ángel Belzunegui~Eraso (2008).
+\newblock \selectlanguage{spanish}Teletrabajo en España, acuerdo marco y
+  administración pública\selectlanguage{spanish}.
+\newblock \selectlanguage{spanish}{\em Universidad Rovira i
+  Virgili}\selectlanguage{spanish}.
+
+\bibitem[\selectlanguage{spanish}Prueba piloto de teletrabajo para el colectivo
+  <<dentro de convenio>>\selectlanguage{spanish}, 2005]{Telefonica_Espana}
+ {Telefónica de España, S.A.U.} (2005).
+\newblock \selectlanguage{spanish}{\em Acuerdo desarrollo cláusula 12.1
+  convenio colectivo 2003/2005}\selectlanguage{spanish}.
+
+\end{thebibliography}

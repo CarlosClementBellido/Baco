@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PropertyChanged.Fody.2.6.1\build\PropertyChanged.Fody.props" Condition="Exists('..\packages\PropertyChanged.Fody.2.6.1\build\PropertyChanged.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{915ABAAC-B026-449D-92B9-45505A7F1D16}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Baco</RootNamespace>
+    <AssemblyName>Baco</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ico\baco.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Geckofx-Core, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
+      <HintPath>..\packages\Geckofx45.64.45.0.34\lib\net45\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
+      <HintPath>..\packages\Geckofx45.64.45.0.34\lib\net45\Geckofx-Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Toolkit, Version=6.0.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Toolkit.6.0.0\lib\netstandard2.0\Microsoft.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Toolkit.Parsers, Version=6.0.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Toolkit.Parsers.6.0.0\lib\netstandard2.0\Microsoft.Toolkit.Parsers.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=2.6.1.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.2.6.1\lib\net452\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.Direct3D11.4.2.0\lib\net45\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.DXGI.4.2.0\lib\net45\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Syndication, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.4.7.0\lib\net461\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Api\ApiConn.cs" />
+    <Compile Include="Beautifiers\EnumerationDescriptor\EnumeratorDescriptor.cs" />
+    <Compile Include="Beautifiers\LoadingNotificator\LoadingNotificator.cs" />
+    <Compile Include="Beautifiers\ToastNotificator\ToastNotificator.cs" />
+    <Compile Include="Converters\ImageToImageSourceConverter.cs" />
+    <Compile Include="Converters\InverseBooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\NullableBooleanToColorConverter.cs" />
+    <Compile Include="Converters\HeightConverter.cs" />
+    <Compile Include="Converters\ProgressBarAudioForegroundConverter.cs" />
+    <Compile Include="Converters\SubstractionConverter.cs" />
+    <Compile Include="Debugging\StatusBar.cs" />
+    <Compile Include="Debugging\VolatileString.cs" />
+    <Compile Include="Dialogs\AcceptCallDialog\AcceptCallDialog.xaml.cs">
+      <DependentUpon>AcceptCallDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ChangeServerAddressDialog\ChangeServerAddressDialog.xaml.cs">
+      <DependentUpon>ChangeServerAddressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GroupCreationUserControl\GroupCreationUserControl.xaml.cs">
+      <DependentUpon>GroupCreationUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GroupCreationUserControl\GroupCreationUserControlVM.cs" />
+    <Compile Include="Dialogs\GroupCreationDialog\GroupCreationDialog.xaml.cs">
+      <DependentUpon>GroupCreationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GroupCreationDialog\GroupCreationDialogVM.cs" />
+    <Compile Include="Dialogs\ToastDialogs\GroupCreationToast\GroupCreationToastVM.cs" />
+    <Compile Include="Dialogs\ToastDialogs\GroupCreationToast\GroupCreationToast.xaml.cs">
+      <DependentUpon>GroupCreationToast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ToastDialogs\AnswerPetitionToast\AnswerPetitionToast.xaml.cs">
+      <DependentUpon>AnswerPetitionToast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ToastDialogs\AnswerPetitionToast\AnswerPetitionToastVM.cs" />
+    <Compile Include="Dialogs\ToastDialogs\SendPetitionToast\SendPetitionToast.xaml.cs">
+      <DependentUpon>SendPetitionToast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ToastDialogs\SendPetitionToast\SendPetitionToastVM.cs" />
+    <Compile Include="Messaging\Message.cs" />
+    <Compile Include="Callables\ICallable.cs" />
+    <Compile Include="Recorder\Benchmarks\VoiceRecorderBenchmark.cs" />
+    <Compile Include="Recorder\Defaults\VoiceRecorderBenchmarkDefaultValues.cs" />
+    <Compile Include="Recorder\Defaults\VoiceRecorderDefaultValues.cs" />
+    <Compile Include="Recorder\ScreenRecorder.cs" />
+    <Compile Include="Recorder\VideoFrame.cs" />
+    <Compile Include="Recorder\VoiceRecorder.cs" />
+    <Compile Include="Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\ApiObject.cs" />
+    <Compile Include="ServerConnection\Client.cs" />
+    <Compile Include="Callables\User.cs" />
+    <Compile Include="ServerConnection\Call.cs" />
+    <Compile Include="ServerObjects\SenderObject.cs" />
+    <Compile Include="ServerObjects\ServerObject.cs" />
+    <Compile Include="Callables\Group.cs" />
+    <Compile Include="Utils\AudioUtils.cs" />
+    <Compile Include="Utils\ImageUtils.cs" />
+    <Compile Include="Utils\WindowsUtils.cs" />
+    <Compile Include="Windows\CallWindow\CallWindow.xaml.cs">
+      <DependentUpon>CallWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CallWindow\CallWindowVM.cs" />
+    <Compile Include="Windows\HubWindow\ChatControl.xaml.cs">
+      <DependentUpon>ChatControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HubWindow\HubWindow.xaml.cs">
+      <DependentUpon>HubWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HubWindow\HubWindowVM.cs" />
+    <Compile Include="Windows\HubWindow\GroupsControl.xaml.cs">
+      <DependentUpon>GroupsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\InitWindow\InitWindow.xaml.cs">
+      <DependentUpon>InitWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ProfileWindow\ProfileWindow.xaml.cs">
+      <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ProfileWindow\ProfileWindowVM.cs" />
+    <Compile Include="Windows\RSSWindow\RSSChannel.cs" />
+    <Compile Include="Windows\RSSWindow\RSSWindow.xaml.cs">
+      <DependentUpon>RSSWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow\Options\VideoOptions\VideoOptionsControl.xaml.cs">
+      <DependentUpon>VideoOptionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow\Options\VideoOptions\VideoOptionsControlVM.cs" />
+    <Compile Include="Windows\SettingsWindow\Options\VoiceOptions\VoiceOptionsConstants.cs" />
+    <Compile Include="Windows\SettingsWindow\Options\VoiceOptions\VoiceOptionsControl.xaml.cs">
+      <DependentUpon>VoiceOptionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow\Options\VoiceOptions\VoiceOptionsControlVM.cs" />
+    <Compile Include="Windows\SettingsWindow\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow\SettingsWindowVM.cs" />
+    <Page Include="Dialogs\AcceptCallDialog\AcceptCallDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ChangeServerAddressDialog\ChangeServerAddressDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\GroupCreationUserControl\GroupCreationUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\GroupCreationDialog\GroupCreationDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ToastDialogs\GroupCreationToast\GroupCreationToast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ToastDialogs\AnswerPetitionToast\AnswerPetitionToast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\ToastDialogs\SendPetitionToast\SendPetitionToast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\CallWindow\CallWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HubWindow\ChatControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HubWindow\HubWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\HubWindow\GroupsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\InitWindow\InitWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ProfileWindow\ProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RSSWindow\RSSWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow\Options\VideoOptions\VideoOptionsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow\Options\VoiceOptions\VoiceOptionsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Diagrams\BacoClientDiagram2.cd" />
+    <None Include="Diagrams\BacoClientDiagram3.cd" />
+    <None Include="Diagrams\BacoClientDiagramAll2.cd" />
+    <None Include="Diagrams\BacoClientDiagramAll.cd" />
+    <None Include="Diagrams\BacoClientDiagram1.cd" />
+    <None Include="Firefox\omni.ja" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\waiting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\arrow-left.png" />
+    <Content Include="Firefox\AccessibleMarshal.dll" />
+    <Content Include="Firefox\d3dcompiler_47.dll" />
+    <Content Include="Firefox\freebl3.dll" />
+    <Content Include="Firefox\icudt58.dll" />
+    <Content Include="Firefox\icuin58.dll" />
+    <Content Include="Firefox\icuuc58.dll" />
+    <Content Include="Firefox\lgpllibs.dll" />
+    <Content Include="Firefox\libEGL.dll" />
+    <Content Include="Firefox\libGLESv2.dll" />
+    <Content Include="Firefox\mozglue.dll" />
+    <Content Include="Firefox\nss3.dll" />
+    <Content Include="Firefox\nssckbi.dll" />
+    <Content Include="Firefox\nssdbm3.dll" />
+    <Content Include="Firefox\plugin-container.exe" />
+    <Content Include="Firefox\plugin-hang-ui.exe" />
+    <Content Include="Firefox\sandboxbroker.dll" />
+    <Content Include="Firefox\softokn3.dll" />
+    <Content Include="Firefox\xul.dll" />
+    <Resource Include="Resources\img\firefox.png" />
+    <Resource Include="Resources\img\default.png" />
+    <Resource Include="Resources\img\MaterialDesign\home.png" />
+    <Resource Include="Resources\img\MaterialDesign\phone.png" />
+    <Resource Include="Resources\img\MaterialDesign\account.png" />
+    <Resource Include="Resources\img\MaterialDesign\settings.png" />
+    <Resource Include="Resources\img\MaterialDesign\arrow-left.png" />
+    <Resource Include="Resources\img\MaterialDesign\refresh.png" />
+    <Resource Include="Resources\img\MaterialDesign\window-normal.png" />
+    <Resource Include="Resources\img\MaterialDesign\window-minimize.png" />
+    <Resource Include="Resources\img\MaterialDesign\window-close.png" />
+    <Resource Include="Resources\img\MaterialDesign\restore.png" />
+    <Resource Include="Resources\img\MaterialDesign\check-circle-outline.png" />
+    <Resource Include="Resources\img\MaterialDesign\radiobox-blank.png" />
+    <Resource Include="Resources\ico\baco.ico" />
+    <Content Include="Resources\sounds\welcomeuser.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\PropertyChanged.Fody.2.6.1\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.2.6.1\build\PropertyChanged.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\Fody.6.1.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.1.1\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Geckofx45.64.45.0.34\build\Geckofx45.64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx45.64.45.0.34\build\Geckofx45.64.targets'))" />
+  </Target>
+  <Import Project="..\packages\Fody.6.1.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.1.1\build\Fody.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Import Project="..\packages\Geckofx45.64.45.0.34\build\Geckofx45.64.targets" Condition="Exists('..\packages\Geckofx45.64.45.0.34\build\Geckofx45.64.targets')" />
+</Project>

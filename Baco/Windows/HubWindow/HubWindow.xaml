@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="Baco.Windows.HubWindow.HubWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Baco.Windows.HubWindow"
+        xmlns:user="clr-namespace:Baco.ServerObjects"
+        xmlns:converters="clr-namespace:Baco.Converters"
+        mc:Ignorable="d"
+        d:DesignHeight="450" d:DesignWidth="800" Background="#FF1B1B1B">
+
+    <UserControl.Resources>
+
+        <converters:ImageToImageSourceConverter x:Key="ImageToImageSourceConverter"/>
+
+        <DataTemplate x:Key="FriendTemplate">
+            <DockPanel Margin="3" LastChildFill="True">
+
+                <Grid DockPanel.Dock="Left">
+                    <Border CornerRadius="50" Background="#CC778899" BorderThickness="3">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderBrush" Value="Green" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding State}" Value="{x:Static user:User+ConnectionState.Disconnected}">
+                                        <Setter Property="BorderBrush" Value="Red" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+
+                        <Rectangle RadiusX="50" RadiusY="50" Width="50" Height="50" Stroke="DarkSlateBlue" StrokeThickness="5">
+                            <Rectangle.Fill>
+                                <ImageBrush x:Name="myImage" ImageSource="{Binding Picture, Converter={StaticResource ImageToImageSourceConverter}}" Stretch="UniformToFill"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                    </Border>
+                </Grid>
+
+                <DockPanel LastChildFill="True" Margin="20,0,0,0">
+                    <TextBlock Text="{Binding Name}" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" DockPanel.Dock="Top"/>
+                    <TextBlock Text="{Binding Descriptor}" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" DockPanel.Dock="Right"/>
+                </DockPanel>
+
+            </DockPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FriendFoundTemplate">
+            <TextBlock Text="{Binding Name}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="LightSteelBlue"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FriendPetitionTemplate">
+            <TextBlock>
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Yellow"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </TextBlock.Style>
+                <Run>¡¡</Run>
+                <Run Text="{Binding Name}" FontWeight="Bold"/>
+                <Run>wants to be your friend</Run>
+                <Run>!!</Run>
+            </TextBlock>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    
+    <Grid Margin="10">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+
+            <DockPanel Grid.Row="0">
+                <Button Content="Home" Click="Button_Click_Home" HorizontalAlignment="Left" Margin="2" Padding="5" Style="{StaticResource NonRoundedButton}"/>
+                <Button Width="32" Height="32" Click="RefreshFriends_Button_Click" Style="{StaticResource RoundedButtonWidowsRefresh}" DockPanel.Dock="Right" 
+                        VerticalAlignment="Bottom"/>
+                <TextBox Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" FontSize="16"/>
+            </DockPanel>
+
+
+            <ListBox x:Name="ListBoxFriends" Background="#FF1B1B1B" ItemTemplate="{StaticResource FriendTemplate}" SelectedItem="{Binding SelectedCallable}" Margin="0,20,0,0"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="ListBoxFriends_SelectionChanged" Grid.Row="1" BorderThickness="0" HorizontalContentAlignment="Stretch"
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+
+            <Border Grid.Row="2" BorderBrush="DarkSlateBlue" BorderThickness="0,3,0,0" Margin="0,20,0,0">
+                <ListBox ItemsSource="{Binding FriendPetitions}" Background="#FF1B1B1B" ItemTemplate="{StaticResource FriendPetitionTemplate}" BorderThickness="0" Margin="0,20,0,0"
+                         HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedPetition}" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                         SelectionChanged="ListBoxPetitions_SelectionChanged"/>
+            </Border>
+
+            <Border Grid.Row="3" BorderBrush="DarkSlateBlue" BorderThickness="0,3,0,0" Margin="0,20,0,0">
+                <ListBox ItemsSource="{Binding ListBoxFoundFriends}" Background="#FF1B1B1B" ItemTemplate="{StaticResource FriendFoundTemplate}" BorderThickness="0" Margin="0,20,0,0"
+                     HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Hidden" SelectedItem="{Binding SelectedFoundFriend}" 
+                         SelectionChanged="ListBoxFoundFriends_SelectionChanged"/>
+            </Border>
+
+            <Border Grid.Row="4" BorderBrush="DarkSlateBlue" BorderThickness="0,3,0,0" Margin="0,20,0,0">
+                <DockPanel LastChildFill="True" Background="#FF1B1B1B" Margin="0,20,0,0">
+                    <Button Height="38" Click="Button_Click_CreateGroup" Style="{StaticResource NonRoundedButton}" Margin="0,10,0,0" DockPanel.Dock="Bottom">Create group</Button>
+                    <ListBox x:Name="ListBoxGroups" SelectedItem="{Binding SelectedCallable}" ItemTemplate="{StaticResource FriendTemplate}" Background="#FF1B1B1B" 
+                             BorderThickness="0" SelectionChanged="ListBoxFriends_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+
+                </DockPanel>
+            </Border>
+        </Grid>
+
+        <local:ChatControl Grid.Column="1" DataContext="{Binding}" x:Name="LocalChatControl" Visibility="Hidden"/>
+        <local:GroupsControl Grid.Column="1" DataContext="{Binding}" x:Name="LocalGroupsControl" Visibility="Visible"/>
+
+    </Grid>
+</UserControl>

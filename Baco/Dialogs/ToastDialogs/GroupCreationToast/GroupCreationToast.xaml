@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Baco.Dialogs.ToastDialogs.GroupCreationToast.GroupCreationToast"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Baco.Dialogs.ToastDialogs.GroupCreationToast"
+             mc:Ignorable="d" 
+             d:DesignHeight="440" d:DesignWidth="440" MinHeight="440" Height="auto" Width="440" Background="#7F1B1B1B" BorderBrush="DarkSlateBlue" BorderThickness="0,2,2,0">
+
+    <UserControl.Resources>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        
+    </UserControl.Resources>
+
+    <DockPanel LastChildFill="True">
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Background="MediumVioletRed" Style="{StaticResource RoundedButtonWidowsClose}" Click="CancelButton_Click"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Top">
+
+            <TextBox Text="{Binding SearchBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextChanged="TextBox_TextChanged" Background="#CC708090" Foreground="White"/>
+
+            <ListView ItemsSource="{Binding FoundFriends}" SelectedItem="{Binding SelectedFriend}" DisplayMemberPath="Name" SelectionChanged="ListBox_SelectionChanged"
+                      Background="#7F778899"/>
+
+            <DockPanel Margin="5">
+                <TextBlock VerticalAlignment="Center" Margin="5">Group name</TextBlock>
+                <TextBox Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#CC708090"/>
+            </DockPanel>
+
+        </StackPanel>
+        
+        <Button Click="CreateButton_Click" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Style="{StaticResource NonRoundedButton}">Create</Button>
+
+        <ListBox ItemsSource="{Binding SelectedFriends}" DisplayMemberPath="Name" Background="#CC778899"/>
+
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,36 @@
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\beamer@sectionintoc {1}{Baco -- Cliente}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Comunicación cliente -- servidor}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Comunicación cliente -- base de datos}{5}{0}{1}
+\beamer@sectionintoc {2}{BacoServer -- Servidor}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{Comunicación servidor -- cliente}{7}{0}{2}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\beamer@subsectionintoc {2}{2}{Comunicación servidor -- base de datos}{8}{0}{2}
+\beamer@sectionintoc {3}{API REST}{9}{0}{3}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}

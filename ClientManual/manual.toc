@@ -1,0 +1,24 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{Primeros pasos}{5}{chapter*.1}% 
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\contentsline {section}{Especificaci\'on de la direcci\'on del servidor (avanzado)}{8}{section*.2}% 
+\contentsline {chapter}{Entrada al sistema e interfaz}{9}{section*.2}% 
+\contentsline {section}{Visor RSS}{10}{section*.3}% 
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\contentsline {section}{Chat}{12}{section*.3}% 
+\contentsline {section}{Llamada}{13}{section*.3}% 
+\contentsline {section}{Perfil}{14}{section*.3}% 
+\contentsline {section}{Opciones}{15}{section*.3}% 
+\contentsline {chapter}{Amigos}{15}{section*.3}% 

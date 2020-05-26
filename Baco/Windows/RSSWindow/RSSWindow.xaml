@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="Baco.Windows.RSSWindow.RSSWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"  
+        xmlns:gecko="clr-namespace:Gecko;assembly=Geckofx-Core"  
+        xmlns:local="clr-namespace:Baco.Windows.RSSWindow"
+        xmlns:converters="clr-namespace:Baco.Converters"
+        mc:Ignorable="d"
+        d:DesignHeight="450" d:DesignWidth="800" Background="#FF1B1B1B" BorderBrush="#FF1B1B1B" BorderThickness="20,0,10,0">
+
+    <UserControl.Resources>
+        
+        <converters:SubstractionConverter x:Key="SubstractionConverter"/>
+        <converters:HeightConverter x:Key="HeightConverter"/>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+    </UserControl.Resources>
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding Path=IsBrowserNormal, Converter={StaticResource HeightConverter}, ConverterParameter='0.3*;0.0001*'}"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="{Binding Path=IsBrowserActive, Converter={StaticResource HeightConverter}, ConverterParameter='*;0*'}"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Grid.Column="0" LastChildFill="True">
+
+                <Grid DockPanel.Dock="Top">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="ChannelFinderTextBox" Grid.Column="0" Margin="0,0,0,10" VerticalAlignment="Center"
+                             Text="{Binding Path=ChannelFinder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Margin="5">
+                        <Button Width="32" Height="32" Background="DarkCyan" Click="RefreshRSSChannels_Button_Click" Style="{StaticResource RoundedButtonWidowsRefresh}"/>
+                    </StackPanel>
+                    
+                </Grid>
+
+                <Button Content="Add RSS channel" Visibility="{Binding Path=IsFindingChannel, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,5,5,5"
+                        Click="AddRSSChannel_Button_Click" DockPanel.Dock="Bottom" Style="{StaticResource NonRoundedButton}"/>
+
+                <ListBox x:Name="ListBoxRSSFeeders" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsSynchronizedWithCurrentItem="True" ScrollViewer.CanContentScroll="True" 
+                             ItemsSource="{Binding Feeders}" SelectionChanged="ListBoxRSSFeeders_SelectionChanged" Background="LightSlateGray" BorderThickness="0" Foreground="White"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel Width="{Binding ElementName=ListBoxRSSFeeders, Path=ActualWidth, Converter={StaticResource SubstractionConverter}}" LastChildFill="True">
+                                <Image Height="24" Source="{Binding Image}" DockPanel.Dock="Left" Margin="0,0,30,0"/>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </DockPanel>
+            <ListBox x:Name="ListBoxRSS" HorizontalAlignment="Stretch" IsSynchronizedWithCurrentItem="True"  ItemsSource="{Binding Feeds}" SelectedItem="{Binding SelectedFeed}"
+                 SelectionChanged="ListBoxRSS_SelectionChanged" Background="#FF464646" BorderThickness="0" Foreground="White" Grid.Column="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel Width="{Binding ElementName=ListBoxRSS, Path=ActualWidth, Converter={StaticResource SubstractionConverter}}" 
+                               Tag="{Binding ElementName=ListBoxRSS, Path=SelectedItem}" LastChildFill="True">
+                            <TextBlock Text="{Binding Categories}" DockPanel.Dock="Bottom" TextWrapping="WrapWithOverflow" Foreground="LightBlue" HorizontalAlignment="Stretch" Margin="5"/>
+                            <Image Height="24" Source="{Binding Image}" DockPanel.Dock="Left" Margin="0,0,30,0"/>
+                            <TextBlock Text="{Binding Title}" TextWrapping="WrapWithOverflow"/>
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+        </Grid>
+
+        <Button Grid.Row="1" Width="120" Height="38" Click="ShowBrowser_Button_Click" HorizontalAlignment="Left"
+                Visibility="{Binding IsBrowserActive, Converter={StaticResource InverseBooleanToVisibilityConverter}}" Style="{StaticResource NonRoundedButton}" Margin="0,10,0,0">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Baco;component/Resources/img/firefox.png" Height="16" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White">RSS Viewer</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" Visibility="{Binding IsBrowserActive, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Button Width="24" Height="24" Background="DarkCyan" Style="{StaticResource RoundedButton}"/>
+            <Button Width="24" Height="24" Background="CornflowerBlue" Style="{StaticResource RoundedButton}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                    Visibility="{Binding IsBrowserActive, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Button Style="{StaticResource RoundedButtonWidowsNormal}" Click="MaximizeBrowser_Button_Click"/>
+            <Button Style="{StaticResource RoundedButtonWidowsClose}" Click="CloseBrowser_Button_Click"/>
+        </StackPanel>
+
+        <Grid x:Name="WebBrowserContainer" Background="DarkSlateBlue" Grid.Row="2"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Baco.ServerObjects.User" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="22.25" Width="2" />
+    <NestedTypes>
+      <Enum Name="Baco.ServerObjects.User.ConnectionState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Callables\User.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAADwAAAAGAAAABEACAAAAQAgAAAAAAAAAIABQAAAAA=</HashCode>
+      <FileName>Callables\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.ServerObjects.Call" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAAAQBAASCgAAAAAAACgAAoAAAACJACQABACAE=</HashCode>
+      <FileName>ServerConnection\Call.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Friend" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.GroupCreationDialog.GroupCreationDialog" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="28" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAEABAAAA=</HashCode>
+      <FileName>Dialogs\GroupCreationDialog\GroupCreationDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="groupCreationDialogVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.GroupCreationDialog.GroupCreationDialogVM" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="27.75" Width="2" />
+    <AssociationLine Name="SelectedFriend" Type="Baco.ServerObjects.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.969" Y="27.75" />
+        <Point X="5.969" Y="27" />
+        <Point X="10.25" Y="27" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="FoundFriends" Type="Baco.ServerObjects.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.234" Y="27.75" />
+        <Point X="6.234" Y="27" />
+        <Point X="8.25" Y="27" />
+        <Point X="8.25" Y="25.875" />
+        <Point X="10.25" Y="25.875" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.442" Y="-0.349" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="SelectedFriends" Type="Baco.ServerObjects.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.562" Y="27.75" />
+        <Point X="5.562" Y="26.758" />
+        <Point X="8.167" Y="26.758" Type="JumpStart" />
+        <Point X="8.333" Y="26.758" Type="JumpEnd" />
+        <Point X="10.25" Y="26.758" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAgAAFAAAAABAAAAAAABU=</HashCode>
+      <FileName>Dialogs\GroupCreationDialog\GroupCreationDialogVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SelectedFriend" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="FoundFriends" />
+      <Property Name="SelectedFriends" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.GroupCreationDialog.GroupCreationToastVM" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="27" Width="2" />
+    <AssociationLine Name="SelectedFriend" Type="Baco.ServerObjects.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.75" Y="27.938" />
+        <Point X="12.255" Y="27.938" Type="JumpStart" />
+        <Point X="12.089" Y="27.938" Type="JumpEnd" />
+        <Point X="12.031" Y="27.938" />
+        <Point X="12.031" Y="27.083" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.503" Y="0.625" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="FoundFriends" Type="Baco.ServerObjects.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.75" Y="29" />
+        <Point X="12.172" Y="29" />
+        <Point X="12.172" Y="27.083" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.201" Y="1.709" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="SelectedFriends" Type="Baco.ServerObjects.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.75" Y="28.375" />
+        <Point X="12.255" Y="28.375" Type="JumpStart" />
+        <Point X="12.089" Y="28.375" Type="JumpEnd" />
+        <Point X="11.891" Y="28.375" />
+        <Point X="11.891" Y="27.083" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.675" Y="1.081" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAgAAFAAAAABAAAAAAABU=</HashCode>
+      <FileName>Dialogs\ToastDialogs\GroupCreationToast\GroupCreationToastVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SelectedFriend" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="FoundFriends" />
+      <Property Name="SelectedFriends" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.GroupCreationUserControl.GroupCreationUserControl" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAEABAAAA=</HashCode>
+      <FileName>Dialogs\GroupCreationUserControl\GroupCreationUserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="groupCreationDialogVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.GroupCreationUserControl.GroupCreationUserControlVM" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="23.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAgAAFAAAAABAAAAAAABU=</HashCode>
+      <FileName>Dialogs\GroupCreationUserControl\GroupCreationUserControlVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SelectedFriend" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="FoundFriends" />
+      <Property Name="SelectedFriends" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.ToastDialogs.AnswerPetitionToast.AnswerPetitionToast" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="5.25" Width="1.75" />
+    <AssociationLine Name="sendPetitionToastVM" Type="Baco.Dialogs.ToastDialogs.AnswerPetitionToast.AnswerPetitionToastVM">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.514" Y="-1.277" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ABAAABAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialogs\ToastDialogs\AnswerPetitionToast\AnswerPetitionToast.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sendPetitionToastVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.ToastDialogs.AnswerPetitionToast.AnswerPetitionToastVM" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="11" Width="2" />
+    <AssociationLine Name="hubWindowVM" Type="Baco.Windows.HubWindow.HubWindowVM" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.531" Y="13.132" />
+        <Point X="3.531" Y="21.375" />
+        <Point X="6.542" Y="21.375" Type="JumpStart" />
+        <Point X="6.708" Y="21.375" Type="JumpEnd" />
+        <Point X="8.375" Y="21.375" />
+        <Point X="8.375" Y="21.875" />
+        <Point X="8" Y="21.875" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAQAAAAAAAAAAAAAAAgAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Dialogs\ToastDialogs\AnswerPetitionToast\AnswerPetitionToastVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hubWindowVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.ToastDialogs.GroupCreationToast.GroupCreationToast" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="27.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAEABAAAA=</HashCode>
+      <FileName>Dialogs\ToastDialogs\GroupCreationToast\GroupCreationToast.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="groupCreationDialogVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.ToastDialogs.SendPetitionToast.SendPetitionToast" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="27.75" Width="1.75" />
+    <AssociationLine Name="SendPetitionToastVM" Type="Baco.Dialogs.ToastDialogs.SendPetitionToast.SendPetitionToastVM">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.096" Y="0.29" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Dialogs\ToastDialogs\SendPetitionToast\SendPetitionToast.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SendPetitionToastVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.ToastDialogs.SendPetitionToast.SendPetitionToastVM">
+    <Position X="3.5" Y="25.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Dialogs\ToastDialogs\SendPetitionToast\SendPetitionToastVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hubWindowVM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Baco.Messaging.Message">
+    <Position X="7.75" Y="11.5" Width="1.75" />
+    <AssociationLine Name="Sender" Type="Baco.ServerObjects.User" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.906" Y="13.632" />
+        <Point X="8.906" Y="18.407" />
+        <Point X="8.39" Y="18.407" />
+        <Point X="8.39" Y="25.562" />
+        <Point X="10.25" Y="25.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAEAAAAAAAAAAAAAAABAAAAAAQIAAA=</HashCode>
+      <FileName>Messaging\Message.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sender" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Baco.Recorder.Benchmarks.VoiceRecorderBenchmark" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="5.5" Width="2" />
+    <AssociationLine Name="VoiceRecorder" Type="Baco.Recorder.VoiceRecorder">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.06" Y="0.218" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAADAAAAAAAAAAAgAAAAAAAAAABAAAAAjA=</HashCode>
+      <FileName>Recorder\Benchmarks\VoiceRecorderBenchmark.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="VoiceRecorder" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Recorder.VoiceRecorder" BaseTypeListCollapsed="true">
+    <Position X="18" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAACAAEAEBAEAIAAQAAAEAAEgAFIAmAAAAAAgCAAEBA=</HashCode>
+      <FileName>Recorder\VoiceRecorder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.CallWindow.CallWindow" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAACAAAAAAAAAAAAAEAAAAAEAAAAEAAA=</HashCode>
+      <FileName>Windows\CallWindow\CallWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="callWindowVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.CallWindow.CallWindowVM" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="8" Width="2" />
+    <AssociationLine Name="ScreenRecorder" Type="Baco.Recording.ScreenRecorder" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="11.312" />
+        <Point X="13.75" Y="11.312" />
+        <Point X="13.75" Y="13.978" />
+        <Point X="12.083" Y="13.978" Type="JumpStart" />
+        <Point X="11.917" Y="13.978" Type="JumpEnd" />
+        <Point X="10.625" Y="13.978" />
+        <Point X="10.625" Y="13.728" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ABIRBAAAAQCAAAjAAgAAAAEAgAAAAAIAAIAIAAAAASA=</HashCode>
+      <FileName>Windows\CallWindow\CallWindowVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ScreenRecorder" />
+      <Property Name="VoiceRecorder" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="FriendsInCall" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Orientation="Bottom" Position="1.8" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.HubWindow.HubWindow" BaseTypeListCollapsed="true">
+    <Position X="4" Y="11.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAAAAAIAAAAAEAAABAAAAAIAAAIAAAAA=</HashCode>
+      <FileName>Windows\HubWindow\HubWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hubWindowVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.HubWindow.HubWindowVM" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="21.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAEEAQAAAAAIAAAMCIACAEIgEQAAgEAAAAAQSAAAAg=</HashCode>
+      <FileName>Windows\HubWindow\HubWindowVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="LastMessage" />
+      <Property Name="SelectedCallable" />
+      <Property Name="SelectedFoundFriend" />
+      <Property Name="SelectedPetition" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListBoxFoundFriends" />
+      <Property Name="FriendPetitions" />
+      <Property Name="Messages" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.SettingsWindow.Options.VoiceOptions.VoiceOptionsControl" BaseTypeListCollapsed="true">
+    <Position X="2" Y="7.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAIAAAAAAAAAAQAEAAAAAgAAAAAAAQAAACAAAA=</HashCode>
+      <FileName>Windows\SettingsWindow\Options\VoiceOptions\VoiceOptionsControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="voiceOptionsControlVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.SettingsWindow.Options.VoiceOptions.VoiceOptionsControlVM" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="7" Width="2" />
+    <AssociationLine Name="VoiceRecorderBenchmark" Type="Baco.Recorder.Benchmarks.VoiceRecorderBenchmark" ManuallyRouted="true">
+      <Path>
+        <Point X="7.5" Y="7" />
+        <Point X="7.5" Y="5.121" />
+        <Point X="17.375" Y="5.121" />
+        <Point X="17.375" Y="6.984" />
+        <Point X="17.75" Y="6.984" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.404" Y="1.528" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BIAAAAAIAAAABAAAQAAAEAQEgEAAAgAAIAAAACAAEAA=</HashCode>
+      <FileName>Windows\SettingsWindow\Options\VoiceOptions\VoiceOptionsControlVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="VoiceRecorderBenchmark" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Recording.ScreenRecorder">
+    <Position X="9.75" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAEECAEBgAARBQgyCMAAQqAgYgBIAAAAAIQwAAAA=</HashCode>
+      <FileName>Recorder\ScreenRecorder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Baco.ServerObjects.ICallable">
+    <Position X="3.25" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACwAAAAGAAAAAAACAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Callables\ICallable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

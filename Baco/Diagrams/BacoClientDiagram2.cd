@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Baco.Dialogs.ToastDialogs.AnswerPetitionToast.AnswerPetitionToast" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="15" Width="2" />
+    <AssociationLine Name="sendPetitionToastVM" Type="Baco.Dialogs.ToastDialogs.AnswerPetitionToast.AnswerPetitionToastVM">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.219" Y="0.047" Height="0.182" Width="1.682" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ABAAABAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialogs\ToastDialogs\AnswerPetitionToast\AnswerPetitionToast.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sendPetitionToastVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.ToastDialogs.AnswerPetitionToast.AnswerPetitionToastVM" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="15" Width="2.25" />
+    <AssociationLine Name="hubWindowVM" Type="Baco.Windows.HubWindow.HubWindowVM">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.084" Y="0.467" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAQAAAAAAAAAAAAAAAgAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Dialogs\ToastDialogs\AnswerPetitionToast\AnswerPetitionToastVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hubWindowVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.ToastDialogs.SendPetitionToast.SendPetitionToast" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="19.75" Width="1.75" />
+    <AssociationLine Name="SendPetitionToastVM" Type="Baco.Dialogs.ToastDialogs.SendPetitionToast.SendPetitionToastVM">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.512" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Dialogs\ToastDialogs\SendPetitionToast\SendPetitionToast.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SendPetitionToastVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Dialogs.ToastDialogs.SendPetitionToast.SendPetitionToastVM">
+    <Position X="4.75" Y="19.5" Width="2" />
+    <AssociationLine Name="hubWindowVM" Type="Baco.Windows.HubWindow.HubWindowVM">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.035" Y="0.444" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Dialogs\ToastDialogs\SendPetitionToast\SendPetitionToastVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hubWindowVM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Baco.Windows.HubWindow.HubWindow" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="17" Width="3" />
+    <AssociationLine Name="hubWindowVM" Type="Baco.Windows.HubWindow.HubWindowVM">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.51" Y="0.142" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAAAAAIAAAAAEAAABAAAAAIAAAIAAAAA=</HashCode>
+      <FileName>Windows\HubWindow\HubWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hubWindowVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.HubWindow.HubWindowVM" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEEAQAAAAAIAAAMCIACAEIgEQAAgEAAAAAQSAAAAg=</HashCode>
+      <FileName>Windows\HubWindow\HubWindowVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

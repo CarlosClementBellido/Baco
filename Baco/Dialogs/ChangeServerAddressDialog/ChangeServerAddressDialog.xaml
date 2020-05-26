@@ -1,0 +1,23 @@
+﻿<Window x:Class="Baco.Dialogs.ChangeServerAddressDialog.ChangeServerAddressDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Baco.Dialogs.ChangeServerAddressDialog"
+        xmlns:client="clr-namespace:Baco"
+        mc:Ignorable="d"
+        Title="Server address change" SizeToContent="Height" Width="800" WindowStyle="None">
+    <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10">
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10,0">
+            <Button Style="{StaticResource NonRoundedButton}" Padding="10,0,10,0" Click="AcceptButton_Click">Accept</Button>
+            <Button Style="{StaticResource NonRoundedButton}" Padding="10,0,10,0" Click="CancelButton_Click">Cancel</Button>
+        </StackPanel>
+        <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="10">
+            <Run>Change server address (default '</Run>
+            <Run Text="{Binding Source={x:Static client:Client.SERVER_ADDRESS}, Mode=OneTime}"/>
+            <Run>'):</Run>
+        </TextBlock>
+        <Button Style="{StaticResource NonRoundedButtonRestore}" Height="42" DockPanel.Dock="Right" Click="RestoreButton_Click" VerticalAlignment="Center"/>
+        <TextBox VerticalAlignment="Center" Text="{Binding ServerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    </DockPanel>
+</Window>

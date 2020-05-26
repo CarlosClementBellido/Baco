@@ -1,0 +1,63 @@
+\BOOKMARK [0][-]{section*.2}{Acr\363nimos}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Introducci\363n}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Objetivo}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Justificaci\363n}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{An\341lisis de lo existente}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Necesidades empresariales para el desarrollo}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Recursos humanos}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.1.1}{Trabajadores}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.2}{Contratos}{section.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.1.3}{Seguridad Social}{section.2.1}% 10
+\BOOKMARK [1][-]{section.2.2}{Prevenci\363n de riesgos laborales}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.1}{Riesgos laborales y medidas preventivas}{section.2.2}% 12
+\BOOKMARK [1][-]{section.2.3}{Iniciativa emprendedora}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.3.1}{Forma jur\355dica}{section.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.3.2}{Tramites administrativos}{section.2.3}% 15
+\BOOKMARK [3][-]{subsubsection.2.3.2.1}{Constituci\363n}{subsection.2.3.2}% 16
+\BOOKMARK [3][-]{subsubsection.2.3.2.2}{Puesta en marcha}{subsection.2.3.2}% 17
+\BOOKMARK [0][-]{chapter.3}{Requisitos funcionales de la aplicaci\363n}{}% 18
+\BOOKMARK [0][-]{chapter.4}{An\341lisis y Dise\361o}{}% 19
+\BOOKMARK [1][-]{section.4.1}{Diagrama de la arquitectura}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.2}{Diagrama de casos de uso}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.3}{Diagrama de clases}{chapter.4}% 22
+\BOOKMARK [2][-]{subsection.4.3.1}{Cliente}{section.4.3}% 23
+\BOOKMARK [2][-]{subsection.4.3.2}{Servidor}{section.4.3}% 24
+\BOOKMARK [1][-]{section.4.4}{Dise\361o de datos}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.4.1}{Amistades}{section.4.4}% 26
+\BOOKMARK [0][-]{chapter.5}{Codificaci\363n}{}% 27
+\BOOKMARK [1][-]{section.5.1}{Lenguajes de programaci\363n y marcado}{chapter.5}% 28
+\BOOKMARK [2][-]{subsection.5.1.1}{C\043}{section.5.1}% 29
+\BOOKMARK [2][-]{subsection.5.1.2}{XAML}{section.5.1}% 30
+\BOOKMARK [2][-]{subsection.5.1.3}{Transact-SQL \(T-SQL\)}{section.5.1}% 31
+\BOOKMARK [1][-]{section.5.2}{Entornos de programaci\363n \(IDE\)}{chapter.5}% 32
+\BOOKMARK [2][-]{subsection.5.2.1}{Visual Studio}{section.5.2}% 33
+\BOOKMARK [3][-]{subsubsection.5.2.1.1}{NuGet}{subsection.5.2.1}% 34
+\BOOKMARK [2][-]{subsection.5.2.2}{SQL Server Management Studio \(SSMS\)}{section.5.2}% 35
+\BOOKMARK [1][-]{section.5.3}{Herramientas}{chapter.5}% 36
+\BOOKMARK [2][-]{subsection.5.3.1}{Mozilla Firefox}{section.5.3}% 37
+\BOOKMARK [2][-]{subsection.5.3.2}{Postman}{section.5.3}% 38
+\BOOKMARK [1][-]{section.5.4}{Aspectos relevantes de la implementaci\363n}{chapter.5}% 39
+\BOOKMARK [2][-]{subsection.5.4.1}{API}{section.5.4}% 40
+\BOOKMARK [3][-]{subsubsection.5.4.1.1}{ApiBaco}{subsection.5.4.1}% 41
+\BOOKMARK [3][-]{subsubsection.5.4.1.2}{Service}{subsection.5.4.1}% 42
+\BOOKMARK [2][-]{subsection.5.4.2}{Cliente \205 Baco}{section.5.4}% 43
+\BOOKMARK [3][-]{subsubsection.5.4.2.1}{ScreenRecorder.cs}{subsection.5.4.2}% 44
+\BOOKMARK [3][-]{subsubsection.5.4.2.2}{VoiceRecorder.cs}{subsection.5.4.2}% 45
+\BOOKMARK [2][-]{subsection.5.4.3}{Servidor \205 BacoServer}{section.5.4}% 46
+\BOOKMARK [2][-]{subsection.5.4.4}{Base de datos}{section.5.4}% 47
+\BOOKMARK [0][-]{chapter.6}{Manuales de usuario}{}% 48
+\BOOKMARK [1][-]{section.6.1}{Baco}{chapter.6}% 49
+\BOOKMARK [1][-]{section.6.2}{BacoServer}{chapter.6}% 50
+\BOOKMARK [0][-]{chapter.7}{Ficheros entregados}{}% 51
+\BOOKMARK [0][-]{chapter.8}{Instalaci\363n y requisitos}{}% 52
+\BOOKMARK [1][-]{section.8.1}{Instalaci\363n}{chapter.8}% 53
+\BOOKMARK [2][-]{subsection.8.1.1}{Intalaci\363n de Baco}{section.8.1}% 54
+\BOOKMARK [2][-]{subsection.8.1.2}{Intalaci\363n del servidor de Baco}{section.8.1}% 55
+\BOOKMARK [2][-]{subsection.8.1.3}{\301rbol de directorios de la carpeta \253Baco SL\273}{section.8.1}% 56
+\BOOKMARK [2][-]{subsection.8.1.4}{Puesta en marcha del API REST}{section.8.1}% 57
+\BOOKMARK [1][-]{section.8.2}{Requisitos}{chapter.8}% 58
+\BOOKMARK [0][-]{chapter.9}{Conclusiones}{}% 59
+\BOOKMARK [1][-]{section.9.1}{Conclusiones sobre el trabajo realizado}{chapter.9}% 60
+\BOOKMARK [1][-]{section.9.2}{Posibles ampliaciones y mejoras}{chapter.9}% 61
+\BOOKMARK [0][-]{chapter*.4}{Lista de C\363digos}{}% 62
+\BOOKMARK [0][-]{chapter*.5}{Bibliograf\355a}{}% 63

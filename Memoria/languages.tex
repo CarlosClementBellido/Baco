@@ -1,0 +1,169 @@
+\renewcommand*{\thelstnumber}{\protect\BeginAccSupp{ActualText={}}{\arabic{lstnumber}}\protect\EndAccSupp{}}
+\AtBeginDocument{\renewcommand*{\theHlstnumber}{\arabic{lstnumber}}}
+\makeatletter
+\patchcmd{\lst@GLI@}% <command>
+{\def\lst@firstline{#1\relax}}% <search>
+{\def\lst@firstline{#1\relax}\def\lst@firstnumber{#1\relax}}% <replace>
+{\typeout{listings firstnumber=firstline}}% <success>
+{\typeout{listings firstnumber not set}}% <failure>
+\makeatother
+%\lstname\arabic{lstnumber}
+
+% Java
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+% XML
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+% C#
+\definecolor{bluekeywords}{rgb}{0.349,0.635,0.8}
+\definecolor{lightgreenkeywords}{rgb}{0.356,0.752,0.631}
+\definecolor{yellowgreenkeywords}{rgb}{0.756,0.5,0.670}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{orangestrings}{rgb}{0.823,0.568,0.439}
+\definecolor{types}{rgb}{0.17,0.57,0.68}
+\definecolor{background}{rgb}{0.117,0.117,0.117}
+
+% SQL
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{HTML}{C42043}
+\definecolor{backcolour}{HTML}{F2F2F2}
+\definecolor{bookColor}{cmyk}{0,0,0,0.90}  
+\color{bookColor}
+
+\lstset
+{
+	tabsize=1,
+	showspaces=false,
+	showtabs=false,
+	showstringspaces=false,
+	breaklines=true,
+	showstringspaces=false,
+	prebreak=\mbox{\textcolor{red}{\BeginAccSupp{ActualText=$\rightarrow$}\space}},
+	postbreak=\mbox{\textcolor{red}{\BeginAccSupp{ActualText=$\hookrightarrow$}\space}},
+	inputencoding=utf8/latin1,
+	breakatwhitespace=true,
+	commentstyle=\color{greencomments},
+	columns=fullflexible,
+	basicstyle=\ttfamily\small,
+	xleftmargin=\dimexpr-\leftmarginii-\leftmargini+60pt,
+	extendedchars=true,
+	escapeinside={(*@}{@*)},
+	stringstyle=\color{orangestrings},
+	numberstyle=\hypertarget{\lstname\arabic{lstnumber}}{\tiny\color{black}}
+}
+
+\lstdefinelanguage{Java}
+{
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]{"},
+	emphstyle=[1]\color{pblue},
+	emph=[1]
+	{ 	
+		public, class, import,
+		package, extends, implements,
+		new, null 
+	}
+}
+
+\lstdefinelanguage{XML}
+{
+	morestring=[b]",
+	morestring=[s]{>}{<},
+	morecomment=[s]{<?}{?>},
+	identifierstyle=\color{darkblue},
+	keywordstyle=\color{cyan},
+	morekeywords={xmlns,version,type}
+}
+
+\lstdefinelanguage{csh}
+{
+	rulecolor=\color{blue},
+	rulesepcolor=\color{blue},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	emphstyle=[1]\color{darkblue},
+	emph=[1]
+	{ 	abstract, event, new, struct,
+		as, explicit, null, switch,
+		base, extern, object, this,
+		bool, false, operator, throw,
+		break, out, true,
+		byte, fixed, override,
+		case, float, params, typeof,
+		private, uint,
+		char, foreach, protected, ulong,
+		checked, goto, public, unchecked,
+		class, readonly, unsafe,
+		const, implicit, ref, ushort,
+		continue, in, return, using,
+		decimal, int, sbyte, virtual,
+		default, interface, sealed, volatile,
+		delegate, internal, short, void,
+		do, is, sizeof,
+		double, lock, stackalloc,
+		else, long, static, get,
+		enum, namespace, string, set,
+		async, await, var},
+	emph=[2]
+	{	StreamReader, Dictionary, DateTime, Environment,
+		Program, Console, Queue, Stack,
+		List, StreamWriter, KeyValuePair, Directory,
+		File, Rally, Equipo, Interruptor,
+		Bombilla, Task, Random, Stopwatch,
+		Image, Timer, Texture2D, BitmapData,
+		MemoryStream, Action, VideoFrame, FrameMapping,
+		Client, ServerObject, SharpDXException, ResultCode,
+		Debug, Thread, GC, Exception
+	},
+	emphstyle=[2]\color{lightgreenkeywords},
+	emph=[3]
+	{	ConsoleKey, OutputDuplicateFrameInformation, DataBox, Rectangle,
+		MapMode, PixelFormat, Bitmap, ImageLockMode,
+		IntPtr, Point, ServerFlag, SenderObject,
+		SenderFlags
+	},
+	emphstyle=[3]\color{yellowgreenkeywords},
+	emph=[4]
+	{	while, if, for, catch, 
+		try, finally
+	},
+	emphstyle=[4]\color{codepurple},
+	breaklines=true,                 
+	captionpos=b,                                
+	numbers=left,                                 
+	showspaces=false,                
+	showstringspaces=false
+}
+
+\lstdefinelanguage{sql}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	emphstyle=[1]\color{bluekeywords},
+	emph=[1]
+	{
+		 CREATE, TABLE, INSERT, INTO,
+		 DATABASE, USE, INT, IDENTITY,
+		 PRIMARY, KEY, VARCHAR, BIT,
+		 DEFAULT, FOREIGN, REFERENCES,
+		 VALUES
+	},
+	morestring=*[d]{'},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                                
+	numbers=left,                                 
+	showspaces=false,                
+	showstringspaces=false  
+}

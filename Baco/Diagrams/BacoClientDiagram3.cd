@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Baco.Recorder.Benchmarks.VoiceRecorderBenchmark" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="24.75" Width="2.5" />
+    <AssociationLine Name="VoiceRecorder" Type="Baco.Recorder.VoiceRecorder">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.214" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAADAAAAAAAAAAAgAAAAAAAAAABAAAAAjA=</HashCode>
+      <FileName>Recorder\Benchmarks\VoiceRecorderBenchmark.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="VoiceRecorder" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Recorder.VoiceRecorder" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="24.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAACAAEAEBAEAIAAQAAAEAAEgAFIAmAAAAAAgCAAEBA=</HashCode>
+      <FileName>Recorder\VoiceRecorder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.CallWindow.CallWindow" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="32.75" Width="3" />
+    <AssociationLine Name="callWindowVM" Type="Baco.Windows.CallWindow.CallWindowVM">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.102" Y="0.08" Height="0.182" Width="1.2" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAACAAAAAAAAAAAAAEAAAAAEAAAAEAAA=</HashCode>
+      <FileName>Windows\CallWindow\CallWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="callWindowVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.CallWindow.CallWindowVM" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="28.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABIRBAAAAQCAAAjAAgAAAAEAgAAAAAIAAIAIAAAAASA=</HashCode>
+      <FileName>Windows\CallWindow\CallWindowVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="2.3" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.SettingsWindow.Options.VoiceOptions.VoiceOptionsControl" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="24.75" Width="2.75" />
+    <AssociationLine Name="voiceOptionsControlVM" Type="Baco.Windows.SettingsWindow.Options.VoiceOptions.VoiceOptionsControlVM">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.89" Y="0.383" Height="0.182" Width="1.707" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAIAAAAAAAAAAQAEAAAAAgAAAAAAAQAAACAAAA=</HashCode>
+      <FileName>Windows\SettingsWindow\Options\VoiceOptions\VoiceOptionsControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="voiceOptionsControlVM" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Baco.Windows.SettingsWindow.Options.VoiceOptions.VoiceOptionsControlVM" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="28.25" Width="2.25" />
+    <AssociationLine Name="VoiceRecorderBenchmark" Type="Baco.Recorder.Benchmarks.VoiceRecorderBenchmark">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.554" Y="1.188" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BIAAAAAIAAAABAAAQAAAEAQEgEAAAgAAIAAAACAAEAA=</HashCode>
+      <FileName>Windows\SettingsWindow\Options\VoiceOptions\VoiceOptionsControlVM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="VoiceRecorderBenchmark" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

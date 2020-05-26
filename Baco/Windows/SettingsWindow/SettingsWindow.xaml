@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Baco.Windows.SettingsWindow.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Baco.Windows.SettingsWindow"
+        
+        xmlns:videooptions="clr-namespace:Baco.Windows.SettingsWindow.Options.VideoOptions"
+        xmlns:voiceoptions="clr-namespace:Baco.Windows.SettingsWindow.Options.VoiceOptions"
+        
+        mc:Ignorable="d" d:DesignHeight="1080" d:DesignWidth="1920" Background="#FF1B1B1B">
+
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="OptionTemplate">
+            <TextBlock Text="{Binding OptionName}"/>
+        </DataTemplate>
+        
+    </UserControl.Resources>
+    
+    <DockPanel LastChildFill="True">
+
+        <ListBox x:Name="OptionsListBox" DockPanel.Dock="Right" ItemTemplate="{StaticResource OptionTemplate}" SelectedIndex="0" ItemsSource="{Binding Options}" Background="#FF1B1B1B" 
+                 Foreground="White" BorderThickness="0" Margin="25"/>
+
+        <ContentControl Content="{Binding ElementName=OptionsListBox, Path=SelectedItem.UserControl}" Margin="50"/>
+
+    </DockPanel>
+</UserControl>

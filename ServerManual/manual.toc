@@ -1,0 +1,22 @@
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\contentsline {chapter}{Puesta en marcha}{5}{chapter*.1}% 
+\contentsline {subsection}{Localizaci\'on del ejecutable (API REST)}{5}{section*.2}% 
+\contentsline {subsection}{Localizaci\'on del ejecutable (BacoServer)}{5}{section*.2}% 
+\contentsline {subsection}{Configuraci\'on del adaptador}{5}{section*.2}% 
+\contentsline {section}{Primera ejecuci\'on}{6}{section*.2}% 
+\contentsline {subsection}{Direcci\'on del API REST}{6}{section*.3}% 
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\contentsline {section}{Interfaz}{8}{section*.3}% 
+\contentsline {subsection}{Resaltado de mensajes}{8}{section*.4}% 
+\contentsline {subsubsection}{Informaci\'on}{8}{section*.4}% 
+\contentsline {subsubsection}{Aviso (\selectlanguage {english}\textit {warning}\selectlanguage {spanish})}{9}{section*.4}% 
+\contentsline {subsubsection}{Error}{9}{section*.4}% 
+\contentsline {subsubsection}{Error cr\IeC {\'\i }tico}{9}{section*.4}% 
+\contentsline {subsection}{Comandos}{10}{section*.4}% 

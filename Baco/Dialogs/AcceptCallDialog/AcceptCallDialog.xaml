@@ -1,0 +1,30 @@
+﻿<Window x:Class="Baco.Dialogs.AcceptCallDialog.AcceptCallDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Baco.Dialogs.AcceptCallDialog"
+        mc:Ignorable="d"
+        Title="AcceptCallDialog" Height="450" Width="800" 
+        WindowStyle="None" SizeToContent="WidthAndHeight">
+    <StackPanel>
+
+        <TextBlock FontSize="32" HorizontalAlignment="Center" Margin="0,10,300,10">
+            <Run>Calling </Run>
+            <Run Text="{Binding Caller}"/>
+        </TextBlock>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Background="LawnGreen" Margin="10,0,10,0" Click="Button_Click_Answer">Answer</Button>
+            <Button Grid.Column="1" Background="RosyBrown" Margin="10,0,10,0" Click="Button_Click_Decline">Delcline</Button>
+            
+        </Grid>
+
+    </StackPanel>
+</Window>
